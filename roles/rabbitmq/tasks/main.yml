@@ -1,0 +1,10 @@
+---
+# Setup/install tasks.
+- include_tasks: setup-RedHat.yml
+  when: ansible_os_family == 'RedHat'
+
+- name: Ensure rabbitmq is started and enabled (if configured).
+  service:
+    name: rabbitmq-server
+    state: started
+    enabled: true
